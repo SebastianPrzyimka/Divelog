@@ -1,0 +1,30 @@
+.containerTable {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr 1fr 1fr 0.1fr;
+	font-size: 2rem;
+	background-color: var(--color-bg);
+	padding: 2rem;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.containerLog {
+	display: block;
+	font-size: 2rem;
+	padding: 2rem;
+}
+
+.diveTable {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr 1fr 1fr 0.1fr;
+	padding: 1rem 0; /* Add some spacing between rows */
+	border-bottom: 1px solid #eee; /* Optional: add row separators */
+}
+
+.diveTable:last-child {
+	border-bottom: none; /* Remove border from last row */
+}
+
+.container h2 {
+	font-size: 2.5rem;
+}

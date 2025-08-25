@@ -1,0 +1,21 @@
+.map {
+	margin-top: 1rem;
+	border-radius: 16px;
+	height: 350px;
+	overflow: hidden;
+	grid-area: div3;
+}
+
+.wrap {
+	padding: 8px;
+}
+
+:global(.leaflet-container) {
+	font: inherit;
+}
+
+@media (max-width: 500px) {
+	.map {
+		display: none;
+	}
+}

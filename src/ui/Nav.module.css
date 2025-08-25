@@ -1,0 +1,158 @@
+/* Desktop nav (hidden on small screens) */
+.navDesktop {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.link {
+	color: var(--color-text);
+	text-decoration: none;
+	font-size: 1.7rem;
+	font-weight: 500;
+	padding: 0.5rem 0.75rem; /* comfy hit area */
+	border-radius: 8px;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+.link:hover {
+	color: var(--color-accent);
+}
+.active {
+	color: var(--color-accent);
+	font-weight: 600;
+	border-radius: 8px;
+	font-size: 1.7rem;
+	padding: 0.5rem 0.75rem;
+}
+
+/* Burger button (hidden on desktop) */
+.burger {
+	appearance: none;
+	border: 0;
+	background: transparent;
+	width: 42px;
+	height: 42px;
+	border-radius: 8px;
+	display: none; /* default hidden; enabled on mobile */
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.burger:hover {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+/* Simple 3-bar hamburger using a pseudo element feel */
+.burgerBar,
+.burgerBarOpen {
+	position: relative;
+	width: 22px;
+	height: 2px;
+	background: var(--color-text);
+	display: inline-block;
+	transition: transform 0.25s ease, background 0.2s ease;
+}
+.burgerBar::before,
+.burgerBar::after,
+.burgerBarOpen::before,
+.burgerBarOpen::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 22px;
+	height: 2px;
+	background: var(--color-text);
+	transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.burgerBar::before {
+	top: -7px;
+}
+.burgerBar::after {
+	top: 7px;
+}
+
+/* Turn into an "X" when open */
+.burgerBarOpen {
+	background: transparent;
+}
+.burgerBarOpen::before {
+	top: 0;
+	transform: rotate(45deg);
+}
+.burgerBarOpen::after {
+	top: 0;
+	transform: rotate(-45deg);
+}
+
+/* Mobile overlay (hidden by default) */
+.mobileOverlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.35);
+	backdrop-filter: blur(2px);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.2s ease;
+}
+
+/* Slide-in panel */
+.navMobile {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: min(78vw, 320px);
+	background: var(--color-bg);
+	box-shadow: -6px 0 18px rgba(0, 0, 0, 0.35);
+	display: flex;
+	flex-direction: column;
+	padding: 5rem 1rem 1.25rem; /* space from top (under header) */
+	gap: 0.25rem;
+	transform: translateX(100%);
+	transition: transform 0.25s ease;
+}
+
+/* When open */
+.mobileOpen {
+	opacity: 1;
+	pointer-events: auto;
+	z-index: -999;
+}
+.mobileOpen .navMobile {
+	transform: translateX(0);
+}
+
+/* Mobile link styles */
+.linkMobile {
+	color: var(--color-text);
+	text-decoration: none;
+	font-size: 1.05rem;
+	padding: 0.9rem 0.9rem;
+	border-radius: 10px;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+.linkMobile:hover {
+	background: rgba(255, 255, 255, 0.08);
+	color: var(--color-accent);
+}
+.activeMobile {
+	color: var(--color-accent);
+	background: rgba(88, 166, 255, 0.12);
+	font-weight: 600;
+	border-radius: 10px;
+	padding: 0.9rem 0.9rem;
+}
+
+/* Breakpoints */
+@media (max-width: 900px) {
+	.navDesktop {
+		display: none;
+	}
+	.burger {
+		display: inline-flex;
+	}
+
+	.linkMobile,
+	.activeMobile {
+		font-size: 1.5rem;
+	}
+}
