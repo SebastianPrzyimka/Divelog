@@ -68,15 +68,22 @@ const DiveChart: React.FC<DiveChartProps> = () => {
 					}}
 				>
 					<CartesianGrid strokeDasharray='3 3' />
-					<XAxis dataKey='month' />
+					<XAxis dataKey='month' className={styles.fontSize} />
 					<YAxis
+						type='number'
+						domain={[0, 'dataMax']}
+						allowDecimals={false}
+						tickCount={6}
 						label={{ value: 'Dives (Nr)', angle: -90, position: 'insideLeft' }}
 					/>
 					<Tooltip
-						formatter={(value: number) => [value, 'Dives']}
-						labelFormatter={(label: string) => `Month: ${label}`}
+						formatter={(value: number) => [
+							<span className={styles.tooltip}>Dives: {value}</span>,
+						]}
+						labelFormatter={(label: string) => (
+							<span className={styles.tooltip}>Month: {label}</span>
+						)}
 					/>
-					{/* <Legend /> */}
 					<Line
 						type='monotone'
 						dataKey='dives'

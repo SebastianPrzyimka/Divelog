@@ -8,9 +8,6 @@ import {
 	ResponsiveContainer,
 } from 'recharts';
 import styles from './DepthChart.module.css';
-
-import { useEffect, useState } from 'react';
-import { getLogs } from '../services/apiLogs';
 import { useDiveLogs } from '../hooks/useData';
 import type { DiveLog } from '../hooks/useData';
 
@@ -59,7 +56,7 @@ function DepthChart() {
 					}}
 				>
 					<CartesianGrid strokeDasharray='3 3' />
-					<XAxis dataKey='date' tick={{ fontSize: 12 }} />
+					<XAxis dataKey='date' className={styles.fontSize} />
 					<YAxis
 						label={{ value: 'Depth (m)', angle: -90, position: 'insideLeft' }}
 						domain={[0, 'dataMax + 5']}
@@ -82,17 +79,15 @@ function DepthChart() {
 											backgroundColor: 'white',
 											padding: '10px',
 											border: '1px solid #ccc',
-											borderRadius: '4px',
-											boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
 										}}
 									>
 										<p>
 											<strong>Dive #{data.diveNumber}</strong>
 										</p>
+
 										<p>Date: {label}</p>
 										<p>Max Depth: {data.depth}m</p>
-										<p>Location: {data.location}</p>
-										<p>Site: {data.site}</p>
+										<p>Country: {data.location}</p>
 									</div>
 								);
 							}

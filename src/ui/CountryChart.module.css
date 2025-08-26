@@ -1,3 +1,42 @@
 .gridChart {
 	grid-area: div2;
+	margin-bottom: 2rem;
+}
+
+.gridChart *:focus {
+	outline: none !important;
+}
+
+.gridChart *:focus-visible {
+	outline: none !important;
+}
+
+.fontSize {
+	font-size: 1.2rem;
+}
+
+/* CountryChart.module.css */
+.tooltip {
+	background: white;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.tooltipCountry {
+	margin: 0 0 4px 0;
+	color: var(--color-text-dark);
+	font-size: 1.2rem;
+}
+
+.tooltipDives {
+	margin: 0;
+	color: var(--color-text-dark);
+	font-size: 1.2rem;
+}
+
+@media (max-width: 540px) {
+	.fontSize {
+		display: none;
+	}
 }

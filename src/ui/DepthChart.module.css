@@ -5,10 +5,25 @@
 	flex: 1;
 }
 
+.container *:focus {
+	outline: none !important;
+}
+
+.container *:focus-visible {
+	outline: none !important;
+}
+
 .title {
 	font-size: 2rem;
 	font-weight: 400;
 }
 
-@media (max-width: 400px) {
+.fontSize {
+	font-size: 1.2rem;
+}
+
+@media (max-width: 540px) {
+	.fontSize {
+		display: none;
+	}
 }
