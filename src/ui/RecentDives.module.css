@@ -57,14 +57,19 @@
 
 @media (max-width: 450px) {
 	.containerTable {
-		font-size: 1.2rem;
+		font-size: 1.5rem;
 		grid-template-columns: 1fr 1fr 1fr 0.5fr;
 		padding: 1.5rem;
 	}
 	.diveTable {
 		font-size: 1.4rem;
 		grid-template-columns: 1fr 1fr 1fr 0.5fr;
-		padding: 0.5rem 2rem;
+		padding: 3rem 0.3rem;
+		width: 100%;
+	}
+
+	.diveTable > div:nth-child(5) {
+		font-size: 1.75rem;
 	}
 
 	.containerTable > div:nth-child(4),
