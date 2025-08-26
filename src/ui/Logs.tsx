@@ -1,5 +1,5 @@
 import type { DiveLog } from '../hooks/useData';
-import styles from './Logs.module.css';
+
 type LogsProps = { logs: DiveLog[] };
 
 function Logs({ logs }: LogsProps) {
