@@ -50,7 +50,7 @@ function DepthChart() {
 					data={chartData}
 					margin={{
 						top: 10,
-						right: 30,
+						right: 5,
 						left: 0,
 						bottom: 0,
 					}}
@@ -58,6 +58,11 @@ function DepthChart() {
 					<CartesianGrid strokeDasharray='3 3' />
 					<XAxis dataKey='date' className={styles.fontSize} />
 					<YAxis
+						allowDecimals={false}
+						tick={false} // Hide tick labels
+						axisLine={false} // Hide axis line
+						tickLine={false} // Hide tick marks
+						width={20} // Minimal width
 						label={{ value: 'Depth (m)', angle: -90, position: 'insideLeft' }}
 						domain={[0, 'dataMax + 5']}
 					/>

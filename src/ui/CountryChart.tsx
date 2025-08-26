@@ -38,8 +38,8 @@ const CountryChart = () => {
 				<BarChart
 					data={chartData}
 					margin={{
-						top: 10,
-						right: 30,
+						top: 0,
+						right: 20,
 						left: 0,
 						bottom: 0,
 					}}
@@ -48,6 +48,10 @@ const CountryChart = () => {
 					<XAxis dataKey='location' className={styles.fontSize} />
 					<YAxis
 						allowDecimals={false}
+						tick={false} // Hide tick labels
+						axisLine={false} // Hide axis line
+						tickLine={false} // Hide tick marks
+						width={20} // Minimal width
 						label={{ value: 'Country', angle: -90, position: 'insideLeft' }}
 					/>
 					<Tooltip

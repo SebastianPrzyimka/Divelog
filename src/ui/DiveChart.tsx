@@ -26,7 +26,7 @@ const transformDiveData = (diveData: DiveLog[]): ChartData[] => {
 		(acc: Record<string, number>, dive: DiveLog) => {
 			const date = new Date(dive.date);
 			const monthYear = date.toLocaleDateString('en-US', {
-				year: 'numeric',
+				year: '2-digit',
 				month: 'short',
 			});
 
@@ -62,13 +62,17 @@ const DiveChart: React.FC<DiveChartProps> = () => {
 					margin={{
 						top: 10,
 						right: 30,
-						left: 0,
-						bottom: 0,
+						left: 5,
+						bottom: -1,
 					}}
 				>
 					<CartesianGrid strokeDasharray='3 3' />
 					<XAxis dataKey='month' className={styles.fontSize} />
 					<YAxis
+						tick={false} // Hide tick labels
+						axisLine={false} // Hide axis line
+						tickLine={false} // Hide tick marks
+						width={20} // Minimal width
 						type='number'
 						domain={[0, 'dataMax']}
 						allowDecimals={false}

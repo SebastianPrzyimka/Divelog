@@ -18,6 +18,10 @@
 	font-weight: 400;
 }
 
+.fontSize {
+	font-size: 1.1rem;
+}
+
 .tooltip {
 	font-size: 1.2rem;
 	color: var(--color-text-dark);
