@@ -12,7 +12,7 @@ import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 // --- Fix #1: make default marker icon URLs work with modern bundlers ---
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore - remove Leaflet's URL resolver so our explicit URLs are used
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
 	// Next/Webpack file-loader objects expose `.src`; Vite returns a string.
