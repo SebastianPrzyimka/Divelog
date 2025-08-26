@@ -142,7 +142,6 @@
 	padding: 0.9rem 0.9rem;
 }
 
-/* Breakpoints */
 @media (max-width: 900px) {
 	.navDesktop {
 		display: none;

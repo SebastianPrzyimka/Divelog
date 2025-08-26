@@ -10,7 +10,7 @@ function TotalDiveTime() {
 			<span>
 				{hours}h {minutes}min
 			</span>
-			<span>Total Dive Time</span>
+			<span>Dive Time</span>
 		</div>
 	);
 }
