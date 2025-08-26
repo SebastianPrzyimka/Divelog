@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import styles from './MapView.module.css';
+import styles from './Mapview.module.css';
 
 import L from 'leaflet';
 import marker2x from 'leaflet/dist/images/marker-icon-2x.png';
