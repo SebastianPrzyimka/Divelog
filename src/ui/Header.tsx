@@ -1,10 +1,10 @@
 import HeaderMenu from './HeaderMenu';
-
+import styles from '../ui/Header.module.css';
 function Header() {
 	return (
-		<div>
+		<header className={styles.wrapper}>
 			<HeaderMenu />
-		</div>
+		</header>
 	);
 }
 

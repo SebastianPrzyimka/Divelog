@@ -1,0 +1,28 @@
+.btn {
+	border: none;
+	border-radius: 8px;
+	padding: 0.5rem 0.9rem;
+	font-weight: 400;
+	cursor: pointer;
+	transition: background-color 0.25s ease, color 0.25s ease,
+		transform 0.15s ease;
+}
+
+.submit {
+	color: var(--color-text-light);
+	background-color: var(--color-accent);
+}
+
+.submit:hover {
+	color: var(--color-text-light);
+	background-color: var(--color-accent-accept);
+}
+
+.reset {
+	color: var(--color-text-light);
+	background-color: var(--color-text);
+}
+
+.reset:hover {
+	background-color: var(--color-text-dark);
+}

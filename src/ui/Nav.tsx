@@ -3,10 +3,10 @@ import styles from './Nav.module.css';
 import { type Dispatch, type SetStateAction } from 'react';
 const navItems = [
 	{ to: '/dashboard', label: 'Dashboard' },
-	{ to: '/Logdive', label: 'Logdive' },
-	{ to: '/Album', label: 'Album' },
-	{ to: '/Todo', label: 'List to do' },
-	{ to: '/Planner', label: 'Plan Ai' },
+	{ to: '/Logdive', label: 'New Dive Entry' },
+	{ to: '/Gallery', label: 'Gallery' },
+	{ to: '/Tasks', label: 'Tasks' },
+	{ to: '/AiBuddy', label: 'Ai Buddy' },
 ];
 
 type Navprops = {

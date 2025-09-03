@@ -31,4 +31,8 @@
 	.fontSize {
 		display: none;
 	}
+
+	.container {
+		margin-right: -2.5rem;
+	}
 }

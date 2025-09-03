@@ -5,7 +5,7 @@
 .gridContainer {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr fr;
+	grid-template-rows: 1fr 1fr 1fr;
 	gap: 16px;
 	grid-template-areas:
 		'div1 div1 div3 div3 '
@@ -106,7 +106,7 @@
 	}
 
 	.averageContainer {
-		font-size: 1.2rem;
+		font-size: 1.4rem;
 		height: 50px;
 	}
 }

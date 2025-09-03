@@ -21,32 +21,38 @@ type DiveChartProps = {
 
 // Transform your dive log data into chart format
 const transformDiveData = (diveData: DiveLog[]): ChartData[] => {
-	// Group dives by month and count them
+	// Group dives by year+month
 	const divesByMonth = diveData.reduce(
 		(acc: Record<string, number>, dive: DiveLog) => {
 			const date = new Date(dive.date);
-			const monthYear = date.toLocaleDateString('en-US', {
-				year: '2-digit',
-				month: 'short',
-			});
 
-			acc[monthYear] = (acc[monthYear] || 0) + 1;
+			// Get full year and month name (or number)
+			const year = date.getFullYear();
+			const month = date.toLocaleString('en-US', { month: 'short' });
+
+			// Use YYYY-MM format for sorting keys
+			const key = `${year}-${date.getMonth() + 1}`; // e.g., 2025-8
+
+			acc[key] = (acc[key] || 0) + 1;
 			return acc;
 		},
 		{}
 	);
 
-	// Convert to array format for chart and sort chronologically
+	// Convert to array and sort chronologically
 	return Object.entries(divesByMonth)
-		.map(([month, count]) => ({
-			month,
-			dives: count,
-			date: new Date(month + ' 1'), // For proper sorting
-		}))
+		.map(([key, count]) => {
+			const [year, monthNum] = key.split('-').map(Number);
+			const date = new Date(year, monthNum - 1, 1);
+			return {
+				month: `${date.toLocaleString('en-US', { month: 'short' })} ${year}`, // "Aug 2025"
+				dives: count,
+				date,
+			};
+		})
 		.sort((a, b) => a.date.getTime() - b.date.getTime())
 		.map(({ month, dives }) => ({ month, dives }));
 };
-
 const DiveChart: React.FC<DiveChartProps> = () => {
 	const { logs } = useDiveLogs();
 	const chartData = transformDiveData(logs);
