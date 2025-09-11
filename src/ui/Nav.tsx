@@ -6,7 +6,6 @@ const navItems = [
 	{ to: '/Logdive', label: 'New Dive Entry' },
 	{ to: '/Gallery', label: 'Gallery' },
 	{ to: '/Tasks', label: 'Tasks' },
-	{ to: '/AiBuddy', label: 'Ai Buddy' },
 ];
 
 type Navprops = {

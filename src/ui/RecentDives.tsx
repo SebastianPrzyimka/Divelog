@@ -1,12 +1,21 @@
 import styles from './RecentDives.module.css';
 import { useDiveLogs } from '../hooks/useData';
 import { formatDate } from '../utils/formatDate';
-import { HiOutlineEye } from 'react-icons/hi';
+import { HiOutlineEye, HiOutlineTrash } from 'react-icons/hi';
 import { getDiveDuration } from '../utils/calculateTime';
 import { Link } from 'react-router';
+import Spinner from './Spinner';
+import { useDelete } from '../hooks/useDelete';
 
 function RecentDives() {
-	const { logs } = useDiveLogs();
+	const { logs, loading } = useDiveLogs();
+	const { mutate: deleteDive } = useDelete();
+
+	function handleDelete(id: string | number) {
+		deleteDive(id);
+	}
+
+	if (loading) return <Spinner />;
 	return (
 		<div className={styles.container}>
 			<h2>Recent Dives</h2>
@@ -26,7 +35,13 @@ function RecentDives() {
 							<div>{log.maxDepth} m</div>
 							<div>{getDiveDuration(log.timeIn, log.timeOut)} min</div>
 							<div className={styles.icon}>
-								<Link to={`/divelog/${log.id}`}>
+								<span
+									className={styles.trash}
+									onClick={() => handleDelete(log.id)}
+								>
+									<HiOutlineTrash />
+								</span>
+								<Link to={`/divelog/${log.id}`} className={styles.preview}>
 									<HiOutlineEye />
 								</Link>
 							</div>

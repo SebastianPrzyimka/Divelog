@@ -30,7 +30,22 @@
 }
 
 .icon {
-	width: 20px;
+	display: flex;
+	width: 2rem;
+}
+
+.preview {
+	color: inherit;
+}
+.preview:focus,
+.preview:active {
+	outline: none;
+	box-shadow: none;
+}
+
+.trash {
+	margin-right: 1rem;
+	cursor: pointer;
 }
 
 .diveTable > div:nth-child(1) {
